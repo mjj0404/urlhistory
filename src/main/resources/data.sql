@@ -1,5 +1,5 @@
 insert into account (email, password, first_name, last_name)
-values('mail', 'pw', 'fn', 'ln');
+values('test@email.com', '1234_hashed', 'Jane', 'Doe');
 
 insert into account (email, password, first_name, last_name)
-values('Ranga', 'E1234567', 'Ranga', 'E1234567');
+values('jae@gmail.com', '1234_hashed', 'Jae', 'Jeong');
