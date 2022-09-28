@@ -10,8 +10,6 @@ import java.util.Set;
 
 
 public interface AccountRepository extends JpaRepository<Account, Long> {
-//    @Query("SELECT l1 FROM Location l1 WHERE l1.node.id IN :ids")
-//    List<Location> findLocationsByNodeIds(@Param("ids") Set<String> ids);
-    @Query(value = "SELECT * FROM account a WHERE a.first_name IN :names or a.last_name IN :names", nativeQuery = true)
+    @Query(value = "SELECT * FROM account a WHERE a.account_name IN :names", nativeQuery = true)
     List<Account> findAccountByName(@Param("names") Set<String> names);
 }
