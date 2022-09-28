@@ -1,8 +1,12 @@
 package com.example.urlhistory.service.impl;
 
+import com.example.urlhistory.exception.ResourceConflictException;
+import com.example.urlhistory.exception.ResourceNotFoundException;
 import com.example.urlhistory.model.Account;
 import com.example.urlhistory.repository.AccountRepository;
 import com.example.urlhistory.service.AccountService;
+import jakarta.persistence.EntityManager;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -27,11 +31,13 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public List<Account> getAccountList() {
+        System.out.println("getAccountList");
         return accountRepository.findAll();
     }
 
     @Override
     public List<Account> getAccountListByName(Set<String> nameSet) {
+        System.out.println("getAccountListByName");
         return accountRepository.findAccountByName(nameSet);
     }
 

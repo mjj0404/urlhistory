@@ -31,13 +31,10 @@ public class AccountController {
     @GetMapping()
     public ResponseEntity<List<Account>> getAccountListByName(@RequestBody(required = false) UserWrapper userWrapper) {
         Set<String> set = new HashSet<>();
-        if (userWrapper != null) {
-            System.out.println(userWrapper.getUsers().toString());
+        if (userWrapper != null && userWrapper.getUsers() != null) {
             set.addAll(userWrapper.getUsers());
         }
         if (set.isEmpty()) return new ResponseEntity<List<Account>>(accountService.getAccountList(), HttpStatus.OK);
         else return new ResponseEntity<List<Account>>(accountService.getAccountListByName(set), HttpStatus.OK);
-//        if (set.isEmpty()) return accountService.getAccountList();
-//        else return accountService.getAccountListByName(set);
     }
 }
