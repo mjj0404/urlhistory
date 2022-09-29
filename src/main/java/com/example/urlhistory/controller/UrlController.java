@@ -33,14 +33,25 @@ public class UrlController {
         return urlService.getUrlList(userWrapper.getUser());
     }
 
-    @PutMapping("/visit/{id}")
+    @PutMapping("/{id}/visit")
     public ResponseEntity<Url> updateUrlVisitCount(@PathVariable long id, @RequestBody Url url) {
         return new ResponseEntity<Url>(urlService.updateUrlUponVisiting(url, id), HttpStatus.OK);
     }
 
-    @PutMapping("/rating/{id}")
+    @PutMapping("/{id}/rating")
     public ResponseEntity<Url> updateUrlRating(@PathVariable long id, @RequestBody Url url) {
         return new ResponseEntity<Url>(urlService.updateUrlRating(url, id), HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}/group")
+    public ResponseEntity<Url> updateUrlGroup(@PathVariable long id, @RequestBody Url url) {
+        return new ResponseEntity<Url>(urlService.updateUrlRating(url, id), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}/delete")
+    public ResponseEntity<String> deleteUrl(@PathVariable long id) {
+        urlService.deleteUrl(id);
+        return new ResponseEntity<String>("Url deleted.", HttpStatus.OK);
     }
 }
 

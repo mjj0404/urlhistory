@@ -36,4 +36,9 @@ public class AccountController {
         if (set.isEmpty()) return new ResponseEntity<List<Account>>(accountService.getAccountList(), HttpStatus.OK);
         else return new ResponseEntity<List<Account>>(accountService.getAccountListByName(set), HttpStatus.OK);
     }
+
+    @PutMapping()
+    public ResponseEntity<Account> updateAccount(@RequestBody Account account) {
+        return new ResponseEntity<Account>(accountService.updateAccount(account), HttpStatus.OK);
+    }
 }

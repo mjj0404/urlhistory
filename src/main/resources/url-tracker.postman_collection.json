@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "38be5dc1-24a5-4c08-a1af-ce7ff19a60b5",
+		"name": "url-tracker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20803191"
+	},
+	"item": [
+		{
+			"name": "createUsers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"account_id\": 33,\n    \"email\": \"jane@email\",\n    \"password\": \"1234\",\n    \"firstName\": \"Jane\",\n    \"lastName\": \"Doe\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createUrl",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/url",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"url"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUrlByAccountName",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\" : \"liz\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/url",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"url"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "visitUrl",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/visit/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"visit",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "rateUrl",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": 2,\n        \"urlName\": \"HAHA\",\n        \"createdAt\": \"2022-09-29T00:23:19.084+00:00\",\n        \"visitedAt\": \"2022-09-29T00:23:19.084+00:00\",\n        \"expireAt\": \"2022-10-02T00:23:19.084+00:00\",\n        \"visitCount\": 1,\n        \"rating\": 6,\n        \"urlGroup\": null,\n        \"account\": {\n            \"accountName\": \"liz\",\n            \"urlCount\": 5,\n            \"storageDurationInDays\": 3,\n            \"urlGroups\": [],\n            \"urls\": [],\n            \"hibernateLazyInitializer\": {}\n        }\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/url/1/rating",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"url",
+						"1",
+						"rating"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUrl",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

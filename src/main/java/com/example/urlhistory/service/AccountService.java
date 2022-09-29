@@ -9,4 +9,5 @@ public interface AccountService {
     Account saveAccount(Account account);
     List<Account> getAccountList();
     List<Account> getAccountListByName(Set<String> nameSet);
+    Account updateAccount(Account account);
 }

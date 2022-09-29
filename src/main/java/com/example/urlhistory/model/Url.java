@@ -30,10 +30,12 @@ public class Url {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "expire_at")
     private Date expireAt;
+    @Column(name = "is_expire")
+    private boolean isExpire;
     @Column(name = "visit_count")
-    private Long visitCount = 1L;
+    private Long visitCount;
     @Column(name = "rating", nullable = true)
-    private Long rating = 0L;
+    private Long rating;
 
     @ManyToOne
     @JoinColumn(name = "url_group_id", nullable = true)

@@ -11,4 +11,5 @@ public interface UrlService {
     List<Url> getUrlList(String name);
     Url updateUrlUponVisiting(Url url, long id);
     Url updateUrlRating(Url url, long id);
+    void deleteUrl(long id);
 }
