@@ -17,6 +17,12 @@ public class Account {
     @Column(name = "account_name", nullable = false)
     private String accountName;
 
+    @Column(name = "url_count")
+    private long urlCount = 100L;
+
+    @Column(name = "storage_duration_in_days")
+    private long storageDurationInDays = 90L;
+
     @OneToMany(mappedBy = "account")
     private Set<UrlGroup> urlGroups;
 

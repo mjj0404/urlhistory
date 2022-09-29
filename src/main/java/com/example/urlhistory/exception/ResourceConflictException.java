@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseStatus(value = HttpStatus.CONFLICT)
 public class ResourceConflictException extends DataIntegrityViolationException {
 
+    private static final long serialVersionUID = 3L;
     private String fieldName;
 
     private String fieldValue;

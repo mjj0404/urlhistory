@@ -4,10 +4,8 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -20,32 +18,28 @@ public class Url {
     @Column(name = "url_id")
     private long id;
 
-
-
     @Column(name = "url_name")
     private String urlName;
-    @CreationTimestamp
-    @Column(name = "created_at")
-    private Timestamp createdAt;
-    @UpdateTimestamp
-    @Column(name = "visited_at")
-    private Timestamp visitedAt;
-    @UpdateTimestamp
-    @Column(name = "expire_at")
-    private Timestamp expireAt;
-    @Column(name = "days_to_expire")
-    private long daysToExpire;
-    @Column(name = "visit_count")
-    private long visitCount;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "created_at")
+    private Date createdAt;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "visited_at")
+    private Date visitedAt;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "expire_at")
+    private Date expireAt;
+    @Column(name = "visit_count")
+    private Long visitCount = 1L;
+    @Column(name = "rating", nullable = true)
+    private Long rating = 0L;
 
     @ManyToOne
-    @JoinColumn(name = "group_id", nullable = true)
+    @JoinColumn(name = "url_group_id", nullable = true)
     private UrlGroup urlGroup;
 
     @ManyToOne
     @JoinColumn(name = "account_name", nullable = false)
     private Account account;
-
-    private long ratingId;
 }

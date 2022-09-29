@@ -1,9 +1,8 @@
 package com.example.urlhistory.controller;
 
 import com.example.urlhistory.model.Account;
-import com.example.urlhistory.model.UserWrapper;
+import com.example.urlhistory.model.wrapper.UserSetWrapper;
 import com.example.urlhistory.service.AccountService;
-import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,10 +28,10 @@ public class AccountController {
     }
 
     @GetMapping()
-    public ResponseEntity<List<Account>> getAccountListByName(@RequestBody(required = false) UserWrapper userWrapper) {
+    public ResponseEntity<List<Account>> getAccountListByName(@RequestBody(required = false) UserSetWrapper userSetWrapper) {
         Set<String> set = new HashSet<>();
-        if (userWrapper != null && userWrapper.getUsers() != null) {
-            set.addAll(userWrapper.getUsers());
+        if (userSetWrapper != null && userSetWrapper.getUsers() != null) {
+            set.addAll(userSetWrapper.getUsers());
         }
         if (set.isEmpty()) return new ResponseEntity<List<Account>>(accountService.getAccountList(), HttpStatus.OK);
         else return new ResponseEntity<List<Account>>(accountService.getAccountListByName(set), HttpStatus.OK);

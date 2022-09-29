@@ -31,13 +31,11 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public List<Account> getAccountList() {
-        System.out.println("getAccountList");
         return accountRepository.findAll();
     }
 
     @Override
     public List<Account> getAccountListByName(Set<String> nameSet) {
-        System.out.println("getAccountListByName");
         return accountRepository.findAccountByName(nameSet);
     }
 
