@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"account_id\": 33,\n    \"email\": \"jane@email\",\n    \"password\": \"1234\",\n    \"firstName\": \"Jane\",\n    \"lastName\": \"Doe\"\n}",
+					"raw": "{\n    \"accountName\": \"Doe\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -36,9 +36,21 @@
 		},
 		{
 			"name": "getUsers",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"users\": [\n        \"liz\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "http://localhost:8080/user",
 					"protocol": "http",
@@ -58,6 +70,15 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"urlName\": \"HAHA\",\n        \"createdAt\": \"2022-09-29T04:54:05.851+00:00\",\n        \"visitedAt\": \"2022-09-29T04:54:05.851+00:00\",\n        \"expireAt\": \"2022-09-29T04:54:05.851+00:00\",\n        \"visitCount\": 0,\n        \"rating\": null,\n        \"urlGroup\": null,\n        \"account\": {\n            \"accountName\": \"liz\",\n            \"urlMaxCount\": 100,\n            \"urlCount\": 0,\n            \"storageDurationInDays\": 7,\n            \"urlGroups\": [],\n            \"urls\": [],\n            \"hibernateLazyInitializer\": {}\n        },\n        \"expire\": false\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "http://localhost:8080/url",
 					"protocol": "http",
@@ -104,20 +125,68 @@
 			"response": []
 		},
 		{
-			"name": "visitUrl",
+			"name": "getUrlSorted",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
-				"method": "PUT",
+				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\" : \"liz\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8080/visit/1",
+					"raw": "http://localhost:8080/url/sorted?sort=rating,desc",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"visit",
-						"1"
+						"url",
+						"sorted"
+					],
+					"query": [
+						{
+							"key": "sort",
+							"value": "rating,desc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "visitUrl",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": 2,\n        \"urlName\": \"HAHA\",\n        \"createdAt\": \"2022-09-29T00:23:19.084+00:00\",\n        \"visitedAt\": \"2022-09-29T00:23:19.084+00:00\",\n        \"expireAt\": \"2022-10-02T00:23:19.084+00:00\",\n        \"visitCount\": 2,\n        \"rating\": 0,\n        \"urlGroup\": null,\n        \"account\": {\n            \"accountName\": \"liz\",\n            \"urlCount\": 5,\n            \"storageDurationInDays\": 3,\n            \"urlGroups\": [],\n            \"urls\": [],\n            \"hibernateLazyInitializer\": {}\n        }\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/url/1/visit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"url",
+						"1",
+						"visit"
 					]
 				}
 			},
@@ -156,8 +225,21 @@
 		{
 			"name": "deleteUrl",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/url/2/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"url",
+						"2",
+						"delete"
+					]
+				}
 			},
 			"response": []
 		}
