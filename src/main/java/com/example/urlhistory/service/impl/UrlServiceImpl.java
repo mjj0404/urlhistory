@@ -6,7 +6,6 @@ import com.example.urlhistory.exception.ResourceNotFoundException;
 import com.example.urlhistory.model.Url;
 import com.example.urlhistory.repository.UrlRepository;
 import com.example.urlhistory.service.UrlService;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
