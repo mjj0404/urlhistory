@@ -5,10 +5,11 @@ API for url history tracker
 <img src="https://user-images.githubusercontent.com/31434297/193477450-d8a6b2c8-709b-4517-a6fd-10c854353d04.png" width="956" height="382"/>
 
 
-Asked but not implemented crossed out\
+
+
 
 ## URL history data maintains a list of URLs on a per user basis.
-
+### Note: Asked but not implemented crossed out
 • Persist the data in a database, on a per user basis. Suggestion: use H2 or Derby in files.
 • Provide an association between a user-defined name and a URL.\
 • Provide a method to query the visitation count of a URL.\
