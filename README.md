@@ -2,7 +2,7 @@
 API for url history tracker
 
 ## original plan for rdbs model design (dropped rating table)
-<img src="https://user-images.githubusercontent.com/31434297/193477450-d8a6b2c8-709b-4517-a6fd-10c854353d04.png" width="428" height="191"/>
+<img src="https://user-images.githubusercontent.com/31434297/193477450-d8a6b2c8-709b-4517-a6fd-10c854353d04.png" width="956" height="382"/>
 
 
 Asked but not implemented crossed out\
